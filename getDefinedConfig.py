@@ -100,7 +100,7 @@ session_headers = {
 response = session.request("GET", url_base + "running/brocade-zone/defined-configuration",
                             headers=session_headers, data=payload, files=files,verify=False)
 if response.status_code != 200:
-    print("Error getting effective configuration in: {}".format(response.status_code))
+    print("Error getting defined configuration in: {}".format(response.status_code))
     print(response.text)
 else:
     json_response = json.loads(response.text)
