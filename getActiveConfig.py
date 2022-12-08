@@ -27,11 +27,12 @@ username = None
 password = None
 outfileName = None
 prefix = "https"
+verbose = False
 
 
 # Retrieve and parse command line arguments.
 try:
-    opts, args = getopt.getopt(sys.argv[1:],"u:p:i:ho:",
+    opts, args = getopt.getopt(sys.argv[1:],"u:p:i:ho:v",
         ["username=", "password=", "address=", "insecure", "outfile"])
 except getopt.GetoptError:
     print("usage: {} -u <username> -p <password> -i <ipaddress> -o <outfile> [--insecure]".format(sys.argv[0]))
@@ -50,6 +51,8 @@ for opt, arg in opts:
         outfileName = arg
     elif opt in ("--insecure"):
         prefix = "http"
+    elif opt in ("-v"):
+        verbose = True
 
 
 if (username is None or password is None or switchAddress is None or outfileName is None):
@@ -107,8 +110,8 @@ else:
 response = session.request("POST", url_base + "logout", headers=session_headers, data=payload,verify=False)
 if response.status_code != 204:
     print("Error logging out: {}".format(response.status_code))
-
-print("Current effective configuration: {}".format(json_response["Response"]["effective-configuration"]["cfg-name"]))
+if verbose:
+    print("Current effective configuration: {}".format(json_response["Response"]["effective-configuration"]["cfg-name"]))
 
 json.dump(json_response["Response"], outfileFD)
 
