@@ -51,13 +51,16 @@ def buildZoneMemberCounts(config):
         zoneMemberCount[i["zone-name"]]["zone-type"] = i["zone-type"]
     return zoneMemberCount
 
-def main():
+
+
+
+def main(argv):
 
     if (len(sys.argv) <2):
-        print("usage: {} <configFileName>".format(sys.argv[0]))
+        print("usage: {} <configFileName>".format(argv[0]))
         sys.exit(2)
 
-    config = getDefinedConfigurationFromFile("foo.json")
+    config = getDefinedConfigurationFromFile(argv[1])
 
     zoneMemberCount = buildZoneMemberCounts(config)
     for i in zoneMemberCount.keys():
@@ -65,4 +68,4 @@ def main():
 
 if __name__ == "__main__":
     # main(sys.argv)
-    main()
+    main(sys.argv)
