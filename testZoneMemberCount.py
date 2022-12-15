@@ -38,15 +38,19 @@ def buildZoneMemberCounts(config):
     zoneMemberCount = {}
 
     for i in config["defined-configuration"]["zone"]:
-        print(i)
-
         if i["zone-type"] == 0:
             zoneMemberCount[i["zone-name"]] = { "principalCount": 0, "nonPrincipalCount": 0 }
             zoneMemberCount[i["zone-name"]]["memberCount"] = len(i["member-entry"]["entry-name"])
         if i["zone-type"] == 1:
             zoneMemberCount[i["zone-name"]] = {"memberCount": 0 }
-            zoneMemberCount[i["zone-name"]]["principalCount"] = len(i["member-entry"]["principal-entry-name"])
-            zoneMemberCount[i["zone-name"]]["nonPrincipalCount"] = len(i["member-entry"]["entry-name"])
+            if "principal-entry-name" in i["member-entry"].keys():
+                zoneMemberCount[i["zone-name"]]["principalCount"] = len(i["member-entry"]["principal-entry-name"])
+            else:
+                zoneMemberCount[i["zone-name"]]["principalCount"] = 0
+            if "entry-name" in i["member-entry"].keys():
+                zoneMemberCount[i["zone-name"]]["nonPrincipalCount"] = len(i["member-entry"]["entry-name"])
+            else:
+                zoneMemberCount[i["zone-name"]]["nonPrincipalCount"] = 0
 
         zoneMemberCount[i["zone-name"]]["zone-type"] = i["zone-type"]
     return zoneMemberCount
