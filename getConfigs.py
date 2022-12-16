@@ -148,7 +148,7 @@ def main():
     if response.status_code != 204:
         print("Error logging out: {}".format(response.status_code))
     if verbose:
-        print("Logged out of fabric complete...")
+        print("Logged out of fabric...")
 
 
     if verbose:
