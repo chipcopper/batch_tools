@@ -37,11 +37,11 @@ def main():
         opts, args = getopt.getopt(sys.argv[1:],"u:p:i:e:d:hv",
             ["username=", "password=", "address=", "insecure", "outfile"])
     except getopt.GetoptError:
-        print("Ausage: {} -u <username> -p <password> -i <ipaddress> -d <definedOutfile> -e <effectiveOutfile> [--insecure]".format(sys.argv[0]))
+        print("usage: {} -u <username> -p <password> -i <ipaddress> -d <definedOutfile> -e <effectiveOutfile> [--insecure]".format(sys.argv[0]))
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print("Busage: {} -u <username> -p <password> -i <ipaddress> -d <definedOutfile> -e <effectiveOutfile> [--insecure]".format(sys.argv[0]))
+            print("usage: {} -u <username> -p <password> -i <ipaddress> -d <definedOutfile> -e <effectiveOutfile> [--insecure]".format(sys.argv[0]))
             sys.exit()
         elif opt in ("-u", "--username"):
             username = arg
@@ -60,7 +60,7 @@ def main():
 
     # Verify all required arguments are present
     if (username is None or password is None or switchAddress is None or effectiveOutfileName is None or definedOutfileName is None):
-        print("Cusage: {} -u <username> -p <password> -i <ipaddress> -d <definedOutfile> -e <effectiveOutfile> [--insecure]".format(sys.argv[0]))
+        print("usage: {} -u <username> -p <password> -i <ipaddress> -d <definedOutfile> -e <effectiveOutfile> [--insecure]".format(sys.argv[0]))
         sys.exit(2)
 
 
