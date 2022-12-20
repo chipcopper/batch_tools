@@ -216,7 +216,7 @@ def main(argv):
     # Retrieve and parse command line arguments.
     try:
         opts, args = getopt.getopt(argv[1:],"u:p:i:w:z:v",
-            ["username=", "password=", "address=", "insecure", "outfile"])
+            ["username=", "password=", "address=", "zonesFile", "wwnsFile"])
     except getopt.GetoptError:
         print("usage: {} -u <username> -p <password> -i <ipaddress> -z <zonesFile> -w <wwnsFile> [--insecure]".format(sys.argv[0]))
         sys.exit(2)
