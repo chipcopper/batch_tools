@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Version 22.12.20.1
 # Copyright 2022 Chip Copper
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy of this 
