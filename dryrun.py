@@ -216,13 +216,13 @@ def main(argv):
     # Retrieve and parse command line arguments.
     try:
         opts, args = getopt.getopt(argv[1:],"u:p:i:w:z:v",
-            ["username=", "password=", "address=", "zonesFile", "wwnsFile"])
+            ["username=", "password=", "address=", "zonesFile", "wwnsFile", "insecure"])
     except getopt.GetoptError:
-        print("usage: {} -u <username> -p <password> -i <ipaddress> -z <zonesFile> -w <wwnsFile> [--insecure]".format(sys.argv[0]))
+        print("Ausage: {} -u <username> -p <password> -i <ipaddress> -z <zonesFile> -w <wwnsFile> [--insecure]".format(sys.argv[0]))
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print("usage: {} -u <username> -p <password> -i <ipaddress> -z <zonesFile> -w <wwnsFile> [--insecure]".format(sys.argv[0]))
+            print("Busage: {} -u <username> -p <password> -i <ipaddress> -z <zonesFile> -w <wwnsFile> [--insecure]".format(sys.argv[0]))
             sys.exit()
         elif opt in ("-u", "--username"):
             username = arg
@@ -241,7 +241,7 @@ def main(argv):
 
     # Verify all required arguments are present
     if (username is None or password is None or switchAddress is None or zoneDelFile is None or wwnDelFile is None):
-        print("usage: {} -u <username> -p <password> -i <ipaddress> -z <zonesFile> -w <wwnsFile> [--insecure]".format(sys.argv[0]))
+        print("Cusage: {} -u <username> -p <password> -i <ipaddress> -z <zonesFile> -w <wwnsFile> [--insecure]".format(sys.argv[0]))
         sys.exit(2)
 
     zonesToDelete = getSetFromFile(zoneDelFile)
