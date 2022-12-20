@@ -102,8 +102,10 @@ def getZonesAndMembersFromDefinedConfig(config):
 def getAliasesFromWwns(wwnLookupTable, wwnList):
     aliasList = SortedSet()
     for i in wwnList:
-        for j in wwnLookupTable[i]:
-            aliasList.add(j)
+        if i in wwnLookupTable.keys():
+            for j in wwnLookupTable[i]:
+                aliasList.add(j)
+                
     return aliasList
 
 def main(argv):
