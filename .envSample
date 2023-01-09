@@ -1,0 +1,7 @@
+
+FABRICIP = "<Replace with switch IP address>"
+FABRICUSER = "<Replace with switch username>"
+FABRICPASSWORD = "<Replace with switch password>"
+FABRICPREFIX = "http"
+
+OVERRIDECONFIRM = False
